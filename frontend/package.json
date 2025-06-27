@@ -11,7 +11,7 @@
     "prettier": "prettier . --ext ts,tsx --check",
     "prettier:fix": "npm run prettier -- --write",
     "format": "npm run prettier:fix && npm run lint:fix",
-    "prepare": "husky && husky install"
+    "prepare": "if [ \"$NODE_ENV\" = \"production\" ]; then HUSKY_GIT_DIR=../.git husky install; fi"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",

@@ -1,0 +1,15 @@
+backend/.env
+.pylintrc
+env
+venv
+.mypy_cache
+__pycache__
+venv
+node_modules
+config.yaml
+egress.json
+README.md
+go.mod
+go.sum
+pkg
+.vscode
