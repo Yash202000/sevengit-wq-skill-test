@@ -9,7 +9,6 @@ node_modules
 config.yaml
 egress.json
 README.md
-go.mod
-go.sum
 pkg
 .vscode
+.env

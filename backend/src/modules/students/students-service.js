@@ -32,6 +32,7 @@ const getStudentDetail = async (id) => {
 const addNewStudent = async (payload) => {
     const ADD_STUDENT_AND_EMAIL_SEND_SUCCESS = "Student added and verification email sent successfully.";
     const ADD_STUDENT_AND_BUT_EMAIL_SEND_FAIL = "Student added, but failed to send verification email.";
+    process.stdout.write(JSON.stringify(payload));
     try {
         const result = await addOrUpdateStudent(payload);
         if (!result.status) {
