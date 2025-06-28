@@ -19,5 +19,32 @@ services:
       - data:/var/lib/postgresql/data
       - ./seed_db:/docker-entrypoint-initdb.d:ro
 
+  backend:
+    build:
+      context: ./backend
+    container_name: backend
+    ports:
+      - "5007:5007"
+    env_file:
+    - ./backend/.env
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - postgres
+
+    
+  frontend:
+    build:
+      context: ./frontend
+    container_name: frontend
+    ports:
+      - "5173:5173"
+    env_file:
+    - ./frontend/.env
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+
 volumes:
   data:
