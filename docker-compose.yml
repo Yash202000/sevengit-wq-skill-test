@@ -32,7 +32,6 @@ services:
     depends_on:
       - postgres
 
-    
   frontend:
     build:
       context: ./frontend
@@ -46,5 +45,16 @@ services:
     volumes:
       - ./frontend:/app
 
+  pdf-service:
+    build:
+      context: ./go-service
+    container_name: pdf-service
+    ports:
+      - "8081:8081"
+    env_file:
+    - ./go-service/.env
+    depends_on:
+      - backend
+    
 volumes:
   data:
