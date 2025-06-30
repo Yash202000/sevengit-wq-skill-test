@@ -28,7 +28,7 @@ export const ListStudents: React.FC = () => {
   });
 
   const [filter, setFilter] = React.useState<StudentFilter>({});
-  const { data, isLoading, isError, error } = useGetStudentsQuery(filter);
+ const { data, isLoading, isError, error } = useGetStudentsQuery(filter);
 
   const searchStudent = (payload: StudentFilter) => {
     setFilter(payload);
@@ -59,7 +59,7 @@ export const ListStudents: React.FC = () => {
           isLoading,
           isError,
           error: getErrorMsg(error as FetchBaseQueryError | SerializedError).message,
-          users: data?.students || []
+          users: data || []
         }}
       />
     </>
